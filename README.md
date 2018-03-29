@@ -23,6 +23,7 @@
 | KeonWoong Noh | Student    |     |
 | ChaeHyun Baek | Student    |     |
 | JK            | Student    |     |
+| SeongIn Moon  | Student    |     |
 | JeWoong Moon  | Student    |     |
 | Yushin        | Student    |     |
 | GookGon Lee   | Student    |     |
@@ -43,6 +44,7 @@
 | HoJin Seo     | Student    |     |
 | Sungho Yun    | Student    |     |
 | Keunmo Koo	  | Genius     |     |
+
 
 
 # Galtron
