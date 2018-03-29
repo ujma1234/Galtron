@@ -16,6 +16,7 @@
 | KeonWoong Noh | Student    |     |
 | ChaeHyun Baek | Student    |     |
 | JK            | Student    |     |
+| Yushin        | Student    |     |
 | GookGon Lee   | Student    |     |
 | Hyobin Lee    | Student    |     |
 | Hayeong Lee   | Student    |     |
@@ -45,4 +46,3 @@ To run the game:
 	-Enter python main.py
 
 By Matt Boan 2017
-
