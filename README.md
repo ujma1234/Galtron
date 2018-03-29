@@ -4,6 +4,7 @@
 | Jeongkyu Shin | Instructor |     |
 | Jaewoo Yang   | Student    |     |
 | JK            | Student    |     |
+| MinSeong Kang | Student    |     |
 | Keongi Kim    | Student    |     |
 | Sungchan Kim  | Student    |     |
 | Kim tae O     | Student    |     |
@@ -51,3 +52,4 @@ To run the game:
 	-Enter python main.py
 
 By Matt Boan 2017
+
