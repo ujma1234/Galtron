@@ -3,6 +3,7 @@
 | Participant   | Role       | ETC |
 |---------------|------------|-----|
 | Jeongkyu Shin | Instructor |     |
+| Kim tae O     | Student    |     |
 | Jeshin Lee    | Student    |     |
 | Hoesung  Jung | Student^^7 | Nerd|
 | Hyunjun Lee   | Student    |     |
@@ -30,6 +31,7 @@
 | JaeHun Lee    | Student    |     |
 | Taewan Park   | Student    |     |
 | Sungho Yun    | Student    |     |
+
 
 # Galtron
 A simple 2D shooter made with pygame, written in python...
