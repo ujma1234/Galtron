@@ -18,6 +18,7 @@
 | KeonWoong Noh | Student    |     |
 | ChaeHyun Baek | Student    |     |
 | JK            | Student    |     |
+| JeWoong Moon  | Student    |     |
 | Yushin        | Student    |     |
 | GookGon Lee   | Student    |     |
 | Hyobin Lee    | Student    |     |
@@ -35,7 +36,6 @@
 | JaeHun Lee    | Student    |     |
 | Taewan Park   | Student    |     |
 | Sungho Yun    | Student    |     |
-
 
 # Galtron
 A simple 2D shooter made with pygame, written in python...
