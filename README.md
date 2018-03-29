@@ -37,6 +37,7 @@
 | Minjun Kim    | Student    |     |
 | JaeHun Lee    | Student    |     |
 | Taewan Park   | Student    |     |
+| HoJin Seo     | Student    |     |
 | Sungho Yun    | Student    |     |
 | Keunmo Koo	  | Genius     |     |
 
