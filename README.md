@@ -38,13 +38,13 @@
 | Yejun Kim     | Student    |     |
 | Yunjea Nam    | Student    |     |
 | Cho young il  | Student    |     |
+| Yerim Hwang	| Student    |     |
 | Minjun Kim    | Student    |     |
 | JaeHun Lee    | Student    |     |
 | Taewan Park   | Student    |     |
 | HoJin Seo     | Student    |     |
 | Sungho Yun    | Student    |     |
 | Keunmo Koo	  | Genius     |     |
-
 
 
 # Galtron
