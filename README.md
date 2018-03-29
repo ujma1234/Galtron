@@ -37,6 +37,7 @@
 | JaeHun Lee    | Student    |     |
 | Taewan Park   | Student    |     |
 | Sungho Yun    | Student    |     |
+| Keunmo Koo	  | Genius     |     |
 
 
 # Galtron
@@ -47,3 +48,6 @@ Props to Python Crash Course for the awesome tut. Although i did add a little ex
 To run the game:
 	-Needs python2.7 and pygame
 	-Open a terminal and cd to Galtron
+	-Enter python main.py
+
+By Matt Boan 2017
