@@ -4,6 +4,7 @@
 | Jeongkyu Shin | Instructor |     |
 | Jaewoo Yang   | Student    |     |
 | JK            | Student    |     |
+| Keongi Kim    | Student    |     |
 | Sungchan Kim  | Student    |     |
 | Kim tae O     | Student    |     |
 | Jeshin Lee    | Student    |     |
@@ -36,6 +37,7 @@
 | JaeHun Lee    | Student    |     |
 | Taewan Park   | Student    |     |
 | Sungho Yun    | Student    |     |
+
 
 # Galtron
 A simple 2D shooter made with pygame, written in python...
