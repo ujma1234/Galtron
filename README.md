@@ -4,6 +4,7 @@
 | Jeongkyu Shin | Instructor |     |
 | Jaewoo Yang   | Student    |     |
 | JK            | Student    |     |
+| Jihoon Yeom   | Student    |     |
 | MinSeong Kang | Student    |     |
 | Keongi Kim    | Student    |     |
 | Sungchan Kim  | Student    |     |
