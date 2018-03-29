@@ -11,6 +11,7 @@
 | Jaehun Kim.   | student.   |     |
 | Hansae Ju     | Student    |     |
 | Jaewoo Yang   | Student    |     |
+| Onyu Park     | Student    |     |
 | TaeWoong Kong | Student    |     |
 | KeonWoong Noh | Student    |     |
 | ChaeHyun Baek | Student    |     |
