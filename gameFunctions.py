@@ -221,6 +221,9 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets):
 	"""Detect collisions between alien and bullets"""
 	collisions = pg.sprite.groupcollide(bullets, aliens, True, True)
 	if collisions:
+		for c in collisions:
+			setting.explosions.add(c.rect.x, c.rect.y)
+		
 		#Increase the ultimate gauge, upto 100
 		stats.ultimateGauge += setting.ultimateGaugeIncrement
 		if stats.ultimateGauge > 100:
@@ -333,7 +336,7 @@ def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, pl
 		menuBtn.drawBtn()
 		quitBtn.drawBtn()
 		sel.blitme()
-
+	setting.explosions.draw(screen)
 	#Make the most recently drawn screen visable.
 	pg.display.flip()
 	pg.display.update()
