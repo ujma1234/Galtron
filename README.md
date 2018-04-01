@@ -1,7 +1,8 @@
 # Learning OSS development through GitHub
 
 | Participant   | Role       | ETC |
-|---------------|------------|-----|
+|===============|============|=====|
+| Jeongkyu Shin | Instructor |     |
 | Jeongkyu Shin | Instructor |     |
 | Leejaehee     | student 	 |     |
 | Minseok  Kang | Student    |     |
@@ -10,6 +11,9 @@
 | Jaewoo Yang   | Student    |     |
 | Cho young il  | Student    |     |
 | Jinsung An    | Student    |     |
+| Minwoo Son	| Student    |     |
+| Kim Dain      | Student    |     |
+| Jeongin Lee | Student  |     |
 | Minwoo Son	  | Student    |     |
 | Kim Dain      | Student    |     |
 | Jeongin Lee   | Student    |     |
