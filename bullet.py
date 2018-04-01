@@ -9,7 +9,7 @@ class Bullet(Sprite):
 		self.screen = screen
 
 		#load the bullet image and set its rect attribute
-		self.image = pg.image.load('gfx/bullet.bmp')
+		self.image = pg.image.load('gfx/bullet.png')
 		self.rect = self.image.get_rect()
 
 		#Create a bullet rect at (0,0)
@@ -34,7 +34,7 @@ class Bullet(Sprite):
 		"""Draw the bullet to the screen"""
 		#pg.draw.rect(self.screen, self.color, self.rect)
 		self.screen.blit(self.image, self.rect)
-
+    
 
 class SpecialBullet(Sprite):
 	"""A class to manage special bullet which can be fired only by the ultimate"""
