@@ -17,7 +17,7 @@ class Settings():
 		self.image = pg.transform.scale(self.image,(self.screenWidth,self.screenHeight))
 		self.bg = self.image
 		#Ships speed
-		self.shipLimit = 3
+		self.shipLimit = 5
 
 		#Bullet settings
 		self.bulletWidth = 3
