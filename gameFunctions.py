@@ -62,6 +62,12 @@ def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel,
 	elif event.key == pg.K_LEFT:
 		#Move the ship left
 		ship.movingLeft = True
+	elif event.key == pg.K_UP:
+		#Move the ship up
+		ship.movingUp = True
+	elif event.key == pg.K_DOWN:
+		#Move the ship down
+		ship.movingDown = True
 	elif event.key == pg.K_TAB:
 		#Change the style of trajectory of bullet
 		if (trajectory < 5):
@@ -87,6 +93,10 @@ def checkKeyupEvents(event, ship):
 		ship.movingRight = False
 	elif event.key == pg.K_LEFT:
 		ship.movingLeft = False
+	elif event.key == pg.K_UP:
+		ship.movingUp = False
+	elif event.key == pg.K_DOWN:
+		ship.movingDown = False
 
 
 def pause(stats):
@@ -169,6 +179,12 @@ def checkFleetEdges(setting, aliens):
 			changeFleetDir(setting, aliens)
 			break
 
+def checkFleetBottom(setting, stats, sb, screen, ship, aliens, bullets, eBullets):
+	"""Respond if any aliens have reached an bottom of screen"""
+	for alien in aliens.sprites():
+		if alien.checkBottom():
+			shipHit(setting, stats, sb, screen, ship, aliens, bullets, eBullets)
+
 
 def changeFleetDir(setting, aliens):
 	"""Change the direction of aliens"""
@@ -201,11 +217,13 @@ def shipHit(setting, stats, sb, screen, ship, aliens, bullets, eBullets):
 def updateAliens(setting, stats, sb, screen, ship, aliens, bullets, eBullets):
 	"""Update the aliens"""
 	checkFleetEdges(setting, aliens)
+	checkFleetBottom(setting, stats, sb, screen, ship, aliens, bullets, eBullets)
 	aliens.update(setting, screen, ship, aliens, eBullets)
 
 	#look for alien-ship collision
 	if pg.sprite.spritecollideany(ship, aliens):
-		shipHit(setting, stats, sb, screen, ship, aliens, bullets)
+		#74
+		shipHit(setting, stats, sb, screen, ship, aliens, bullets, eBullets)
 		sb.prepShips()
 
 
