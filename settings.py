@@ -28,7 +28,7 @@ class Settings():
 
 		#How quickly the game speeds up
 		self.speedUp = 1.1
-		self.scoreSpeedUp = 1.5
+		self.scoreSpeedUp = 5
 
 		self.initDynamicSettings()
 
@@ -38,7 +38,7 @@ class Settings():
 		self.alienSpeed = 1
 		self.fleetDropSpeed = 5
 		self.fleetDir = 1
-		self.alienPoints = 50
+		self.alienPoints = 10
 
 	def increaseSpeed(self):
 		"""Increase the speed settings"""
