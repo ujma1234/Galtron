@@ -8,6 +8,8 @@ import random
 
 pauseBtnState = 1
 back = False
+trajectory = 0
+
 x = 0
 clock = pg.time.Clock()
 FPS = 120
@@ -53,14 +55,21 @@ def checkEvents(setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens,
 def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets, pauseBtnState):
 	"""Response to kepresses"""
 	global back
+	global trajectory
 	if event.key == pg.K_RIGHT:
 		#Move the ship right
 		ship.movingRight = True
 	elif event.key == pg.K_LEFT:
 		#Move the ship left
 		ship.movingLeft = True
+	elif event.key == pg.K_TAB:
+		#Change the style of trajectory of bullet
+		if (trajectory < 5):
+			trajectory += 1
+		else:
+			trajectory = 0
 	elif event.key == pg.K_SPACE:
-		newBullet = Bullet(setting, screen, ship)
+		newBullet = Bullet(setting, screen, ship, trajectory)
 		bullets.add(newBullet)
 	elif event.key == pg.K_x:
 		#Ultimate key
@@ -341,3 +350,4 @@ def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, pl
 	pg.display.flip()
 	pg.display.update()
 	clock.tick(FPS)
+
