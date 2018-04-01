@@ -1,20 +1,20 @@
 # Learning OSS development through GitHub
 
+
 | Participant   | Role       | ETC |
-|===============|============|=====|
+|---------------|------------|-----|
 | Jeongkyu Shin | Instructor |     |
-| Jeongkyu Shin | Instructor |     |
-| Leejaehee     | student 	 |     |
+| Lee jaehee    | student    |     |
 | Minseok  Kang | Student    |     |
-| Jaehun Kim.   | student.   |     |
+| Jaehun Kim.   | student    |     |
 | Hansae Ju     | Student    |     |
 | Jaewoo Yang   | Student    |     |
 | Cho young il  | Student    |     |
 | Jinsung An    | Student    |     |
 | Minwoo Son	| Student    |     |
 | Kim Dain      | Student    |     |
-| Jeongin Lee | Student  |     |
-| Minwoo Son	  | Student    |     |
+| Jeongin Lee   | Student.   |     |
+| Minwoo Son.   | Student    |     |
 | Kim Dain      | Student    |     |
 | Jeongin Lee   | Student    |     |
 | YK            | Student    |     |
@@ -53,13 +53,13 @@
 | Yunjea Nam    | Student    |     |
 | Cho young il  | Student    |     |
 | Kim yong jun  | Student    |     |
-| Yerim Hwang	  | Student    |     |
+| Yerim Hwang	| Student    |     |
 | Minjun Kim    | Student    |     |
 | JaeHun Lee    | Student    |     |
 | Taewan Park   | Student    |     |
 | HoJin Seo     | Student    |     |
 | Sungho Yun    | Student    |     |
-| Keunmo Koo	  | Genius     |     |
+| Keunmo Koo.   | Genius     |     |
 
 # Galtron
 A simple 2D shooter made with pygame, written in python...
