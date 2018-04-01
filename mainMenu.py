@@ -62,6 +62,8 @@ def drawMenu(setting, screen, sb, playBtn, menuBtn, twoPlayBtn, aboutBtn, quitBt
 	screen.fill(setting.bgColor)
 	#screen.blit(setting.bg, (0,0))
 	screen.blit(image, rect)
+	#screen.fill(setting.bgColor)
+	screen.blit(setting.bg, (0,0))
 	playBtn.drawBtn()
 	twoPlayBtn.drawBtn()
 	aboutBtn.drawBtn()
