@@ -3,7 +3,9 @@ import pygame as pg
 from time import sleep
 from bullet import Bullet, SpecialBullet
 from alien import Alien
+from settings import Settings
 import random
+
 
 pauseBtnState = 1
 back = False
@@ -82,6 +84,11 @@ def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel,
 	#Check for pause key
 	elif event.key == pg.K_p:
 		pause(stats)
+	#Add speed control key
+	elif event.key == pg.K_q:
+		setting.halfspeed()
+	elif event.key == pg.K_w:
+		setting.doublespeed()
 	elif event.key == pg.K_ESCAPE:
 		#Quit game
 		sys.exit()
