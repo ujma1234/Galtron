@@ -82,7 +82,7 @@ def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel,
 		#Ultimate key
 		useUltimate(setting, screen, stats, bullets, stats.ultimatePattern)
 	#Check for pause key
-	elif event.key == pg.K_p:
+	elif event.key == pg.K_r:
 		pause(stats)
 	#Add speed control key
 	elif event.key == pg.K_q:
@@ -249,6 +249,7 @@ def updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
 	for bullet in bullets.copy():
 		if bullet.rect.bottom <= 0:
 			bullets.remove(bullet)
+      
 
 
 def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
@@ -377,3 +378,4 @@ def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, pl
 	pg.display.flip()
 	pg.display.update()
 	clock.tick(FPS)
+
