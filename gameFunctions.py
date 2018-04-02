@@ -82,7 +82,7 @@ def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel,
 		#Ultimate key
 		useUltimate(setting, screen, stats, bullets, stats.ultimatePattern)
 	#Check for pause key
-	elif event.key == pg.K_r:
+	elif event.key == pg.K_p:
 		pause(stats)
 	#Add speed control key
 	elif event.key == pg.K_q:
