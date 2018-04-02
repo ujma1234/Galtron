@@ -73,7 +73,6 @@ def checkEvents(setting, screen, stats, sb, playBtn, twoPlayBtn, aboutBtn, quitB
 				pg.mixer.Sound.play(button_click_sound)
 				pg.time.delay(300)
 				sys.exit()
-			print(event.key)
 	prepTitle(setting, screen)
 
 def prepTitle(setting, screen):
