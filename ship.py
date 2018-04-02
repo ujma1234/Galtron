@@ -40,7 +40,7 @@ class Ship(Sprite):
 		self.timer = 0
 		self.trajectory = 0
 
-  def update(self, bullets):
+	def update(self, bullets):
 		self.image = pg.image.load(checkColor())
 		"""Update the ships position"""
 		if self.movingRight and self.rect.right < self.screenRect.right:
