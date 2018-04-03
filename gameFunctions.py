@@ -292,8 +292,6 @@ def updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
 		if bullet.rect.bottom <= 0:
 			bullets.remove(bullet)
 
->>>>>>> master
-
 
 def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
 	"""Detect collisions between alien and bullets"""
