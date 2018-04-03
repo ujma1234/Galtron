@@ -65,7 +65,7 @@ class Ship(Sprite):
 			self.centery += self.setting.shipSpeed
 		if self.shoot == True:
 			if self.timer2 > 10:
-        self.image = pg.transform.rotate(self.image,0)
+				self.image = pg.transform.rotate(self.image, 0)
 				if self.chargeGauge < 100:
 					self.chargeGauge += 2
 				else:
