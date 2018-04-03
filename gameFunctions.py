@@ -84,7 +84,14 @@ def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel,
 		else:
 			ship.trajectory = 0
 	elif event.key == pg.K_SPACE:
-		ship.shoot = True
+		if not stats.paused:
+			if len(bullets) < 10:
+				sounds.attack.play()
+				newBullet = Bullet(setting, screen, ship, ship.trajectory)
+				bullets.add(newBullet)
+				ship.chargeGaugeStartTime = pg.time.get_ticks()
+				ship.shoot = True
+
 	elif event.key == pg.K_x:
 		#Ultimate key
 		useUltimate(setting, screen, stats, bullets, stats.ultimatePattern)
@@ -122,6 +129,16 @@ def checkKeyupEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, s
 	elif event.key == pg.K_DOWN:
 		ship.movingDown = False
 	elif event.key == pg.K_SPACE:
+		if not stats.paused:
+			if (ship.chargeGauge == 100):
+				sounds.charge_shot.play()
+				newBullet = Bullet(setting, screen, ship, ship.trajectory, 2)
+				bullets.add(newBullet)
+				ship.chargeGauge = 0
+			elif (50 <= ship.chargeGauge):
+				sounds.charge_shot.play()
+				newBullet = Bullet(setting, screen, ship, ship.trajectory, 1)
+				bullets.add(newBullet)
 		ship.shoot = False
 
 def pause(stats):
@@ -373,7 +390,13 @@ def useUltimate(setting, screen, stats, sbullets, pattern):
 #		make other pattern
 	stats.ultimateGauge = 0
 
-
+def updateChargeGauge(ship):
+	gauge = 0
+	if ship.shoot == True:
+		gauge = 100 * ((pg.time.get_ticks() - ship.chargeGaugeStartTime) / ship.fullChargeTime)
+		if (100 < gauge):
+			gauge = 100
+	ship.chargeGauge = gauge
 
 def drawChargeGauge(setting, screen, ship):
 	x = 290
