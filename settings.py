@@ -14,7 +14,6 @@ class Settings():
 		self.bg = self.image
 		#Ultimate settings
 		self.ultimateGaugeIncrement = 3
-
 		#Ships speed
 		self.shipLimit = 5
 
@@ -52,7 +51,11 @@ class Settings():
 				self.image = pg.image.load("gfx/background4.png")
 				self.image = pg.transform.scale(self.image,(self.screenWidth,self.screenHeight))
 				self.bg = self.image
+<<<<<<< HEAD
         #
+=======
+        #
+>>>>>>> 95e5fd59e03ca0584c0237aafa142f7262a65685
 	def initDynamicSettings(self):
 		self.shipSpeed = 1.5
 		self.bulletSpeed = 4
@@ -73,7 +76,11 @@ class Settings():
 
 
 	def halfspeed(self):
+<<<<<<< HEAD
                 if self.Limit >= -1 and self.shipSpeed>0 and self.bulletSpeed>0 and self.alienSpeed>0 and self.fleetDropSpeed>0:
+=======
+                if self.Limit >= -1 and self.shipSpeed>0 and self.bulletSpeed>0 and self.alienSpeed>0 and self.fleetDropSpeed>0:
+>>>>>>> 95e5fd59e03ca0584c0237aafa142f7262a65685
                         self.shipSpeed *= 0.5
                         self.bulletSpeed *= 0.5
                         self.alienSpeed *= 0.5
@@ -83,7 +90,11 @@ class Settings():
                         self.Limit -= 1
 
 	def doublespeed(self):
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 95e5fd59e03ca0584c0237aafa142f7262a65685
                 self.shipSpeed *= 1.3
                 self.bulletSpeed *= 1.3
                 self.alienSpeed *= 1.3
