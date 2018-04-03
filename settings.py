@@ -34,6 +34,10 @@ class Settings():
 
 		self.initDynamicSettings()
 
+		#Interception settings
+		self.checkBtnPressed = 0
+		self.interception = False
+
         #BackGroundChange
 	def bgimg(self,number):
 		number = number % 3
