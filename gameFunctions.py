@@ -14,18 +14,6 @@ x = 0
 clock = pg.time.Clock()
 FPS = 120
 bgloop = 0
-#Init and load sound effects
-pg.mixer.init(44100, -16, 2, 4096)
-control_menu = pg.mixer.Sound("sound_effects/control_menu.wav")
-control_menu.set_volume(0.22)
-select_menu = pg.mixer.Sound("sound_effects/select_menu.wav")
-select_menu.set_volume(0.18)
-attack = pg.mixer.Sound("sound_effects/attack.wav")
-attack.set_volume(0.08)
-ult_attack = pg.mixer.Sound("sound_effects/ult_attack.wav")
-ult_attack.set_volume(0.08)
-paused = pg.mixer.Sound("sound_effects/paused.wav")
-paused.set_volume(0.1)
 
 def checkEvents(setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets):
 	"""Respond to keypresses and mouse events."""

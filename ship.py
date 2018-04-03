@@ -65,8 +65,7 @@ class Ship(Sprite):
 				sounds.attack.play()
 				newBullet = Bullet(self.setting, self.screen, self, self.trajectory)
 				bullets.add(newBullet)
-				pg.mixer.music.load('bullet.mp3')
-				pg.mixer.music.play()
+				sounds.attack.play()
 				self.timer = 0
 			else:
 				self.timer += 1
