@@ -347,7 +347,7 @@ def checkHighScore(stats, sb):
 
 def updateUltimateGauge(setting, screen, stats, sb):
 	"""Draw a bar that indicates the ultimate gauge"""
-	x = sb.levelRect.left - 110
+	x = sb.levelRect.left - 130
 	y = sb.levelRect.top + 4
 	gauge = stats.ultimateGauge
 	ultimateImg = pg.font.Font('Fonts/Square.ttf', 10).render("POWER SHOT(X)", True, (255,255,255),
@@ -401,9 +401,9 @@ def updateChargeGauge(ship):
 			gauge = 100
 	ship.chargeGauge = gauge
 
-def drawChargeGauge(setting, screen, ship):
-	x = 290
-	y = 50
+def drawChargeGauge(setting, screen, ship, sb):
+	x = sb.levelRect.left - 240
+	y = sb.levelRect.top + 4
 	color = (50,50,50)
 	if (ship.chargeGauge == 100):
 		color = (255,0,0)
@@ -444,7 +444,8 @@ def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, pl
 	#Update Ultimate Gauge
 	updateUltimateGauge(setting, screen, stats, sb)
 
-	drawChargeGauge(setting, screen, ship)
+	updateChargeGauge(ship)
+	drawChargeGauge(setting, screen, ship, sb)
 
 	#Draw the scoreboard
 	sb.prepScore()
