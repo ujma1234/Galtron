@@ -287,6 +287,8 @@ def updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
 		if bullet.rect.bottom <= 0:
 			bullets.remove(bullet)
 
+>>>>>>> master
+
 
 def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
 	"""Detect collisions between alien and bullets"""
@@ -331,13 +333,23 @@ def checkHighScore(stats, sb):
 		stats.highScore = stats.score
 		sb.prepHighScore()
 
-def updateUltimateGauge(setting, screen, stats):
+def updateUltimateGauge(setting, screen, stats, sb):
 	"""Draw a bar that indicates the ultimate gauge"""
-	x = 290
-	y = 15
+	x = sb.levelRect.left - 110
+	y = sb.levelRect.top + 4
 	gauge = stats.ultimateGauge
-	pg.draw.rect(screen, (255,255,255), (x,y,100,10), 0)
-	pg.draw.rect(screen, (0,0,255), (x,y,gauge,10), 0)
+	ultimateImg = pg.font.Font('Fonts/Square.ttf', 10).render("POWER SHOT(X)", True, (255,255,255),
+		(255,100,0))
+	ultimateRect = ultimateImg.get_rect()
+	ultimateRect.x = x + 5
+	ultimateRect.y = y
+	if gauge == 100:
+		pg.draw.rect(screen, (255,255,255), (x,y,100,12), 0)
+		pg.draw.rect(screen, (255,100,0), (x,y,gauge,12), 0)
+		screen.blit(ultimateImg, ultimateRect)
+	else:
+		pg.draw.rect(screen, (255,255,255), (x,y,100,12), 0)
+		pg.draw.rect(screen, (0,255,255), (x,y,gauge,12), 0)
 
 def UltimateDiamondShape(setting, screen, stats, sbullets):
 	xpos = 10
@@ -369,10 +381,6 @@ def useUltimate(setting, screen, stats, sbullets, pattern):
 #		make other pattern
 	stats.ultimateGauge = 0
 
-
-
-
-
 def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, playBtn, menuBtn, quitBtn, sel):
 	"""Update images on the screen and flip to the new screen"""
 	#Redraw the screen during each pass through the loop
@@ -402,7 +410,7 @@ def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, pl
 	aliens.draw(screen)
 
 	#Update Ultimate Gauge
-	updateUltimateGauge(setting, screen, stats)
+	updateUltimateGauge(setting, screen, stats, sb)
 
 	#Draw the scoreboard
 	sb.showScore()
