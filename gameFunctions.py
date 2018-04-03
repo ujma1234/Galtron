@@ -82,7 +82,7 @@ def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel,
 		ship.movingDown = True
 	elif event.key == pg.K_TAB:
 		#Change the style of trajectory of bullet
-		if (ship.trajectory < 5):
+		if (ship.trajectory < 4):
 			ship.trajectory += 1
 		else:
 			ship.trajectory = 0
