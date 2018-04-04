@@ -1,5 +1,5 @@
 import pygame as pg
-from animations import Explosions
+
 
 class Settings():
 	bgColor = (20, 20, 20)
