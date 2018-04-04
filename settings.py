@@ -2,6 +2,12 @@ import pygame as pg
 from animations import Explosions
 
 class Settings():
+	bgColor = (20, 20, 20)
+	bgColor1 = (235,235,235)
+	emp1 = (0,0,0)
+	bulletColor = (60, 60, 60)
+	bulletColor1 = (195,195,195)
+	emp2 = (0,0,0)
 	"""A class to store all settings for game"""
 	def __init__(self):
 		"""Initialize the class"""
@@ -14,13 +20,14 @@ class Settings():
 		self.bg = self.image
 		#Ultimate settings
 		self.ultimateGaugeIncrement = 3
+
 		#Ships speed
 		self.shipLimit = 5
 
 		#Bullet settings
 		self.bulletWidth = 3
 		self.bulletHeight = 15
-		self.bulletColor = (60, 60, 60)
+		self.bulletColor
 
 		#Alien settings
 
@@ -32,26 +39,33 @@ class Settings():
 		self.Limit = 0
 
 		self.initDynamicSettings()
-
 		#Interception settings
 		self.checkBtnPressed = 0
 		self.interception = False
 
-	#BackGroundChange
+	def reverseCol():
+		Settings.emp1 = Settings.bgColor
+		Settings.bgColor = Settings.bgColor1
+		Settings.bgColor1 = Settings.emp1
+		Settings.emp2 = Settings.bulletColor
+		Settings.bulletColor = Settings.bulletColor1
+		Settings.bulletColor1 = Settings.emp2
+
 	def bgimg(self,number):
 		number = number % 3
 		if number == 0:
-				self.image = pg.image.load("gfx/background2.png")
-				self.bg = self.image
+			self.image = pg.image.load("gfx/background2.png")
+			self.image = pg.transform.scale(self.image,(self.screenWidth,self.screenHeight))
+			self.bg = self.image
 		elif number == 1:
-				self.image = pg.image.load("gfx/background3.png")
-				self.image = pg.transform.scale(self.image,(self.screenWidth,self.screenHeight))
-				self.bg = self.image
+			self.image = pg.image.load("gfx/background3.png")
+			self.image = pg.transform.scale(self.image,(self.screenWidth,self.screenHeight))
+			self.bg = self.image
 		else:
-				self.image = pg.image.load("gfx/background4.png")
-				self.image = pg.transform.scale(self.image,(self.screenWidth,self.screenHeight))
-				self.bg = self.image
-
+			self.image = pg.image.load("gfx/background4.png")
+			self.image = pg.transform.scale(self.image,(self.screenWidth,self.screenHeight))
+			self.bg = self.image
+        #
 	def initDynamicSettings(self):
 		self.shipSpeed = 1.5
 		self.bulletSpeed = 4
@@ -68,6 +82,8 @@ class Settings():
 		if self.alienSpeed <= 1.5:
 			self.alienSpeed *= self.speedUp
 			self.fleetDropSpeed *= self.speedUp
+
+		self.alienPoints = int(self.alienPoints * self.scoreSpeedUp)
 		self.alienPoints = int(self.alienPoints + self.scoreSpeedUp)
 
 
