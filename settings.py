@@ -82,7 +82,6 @@ class Settings():
 		if self.alienSpeed <= 1.5:
 			self.alienSpeed *= self.speedUp
 			self.fleetDropSpeed *= self.speedUp
-
 		self.alienPoints = int(self.alienPoints * self.scoreSpeedUp)
 		self.alienPoints = int(self.alienPoints + self.scoreSpeedUp)
 
