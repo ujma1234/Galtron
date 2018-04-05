@@ -330,6 +330,11 @@ def updateAliens(setting, stats, sb, screen, ship1, ship2, aliens, bullets, eBul
         # 74
         shipHit(setting, stats, sb, screen, ship1, ship2, aliens, bullets, eBullets)
         sb.prepShips()
+        setting.explosions.add(ship1.rect.x, ship1.rect.y)
+    if pg.sprite.spritecollideany(ship2, aliens):
+        shipHit(setting, stats, sb, screen, ship1, ship2, aliens, bullets, eBullets)
+        sb.prepShips()
+        setting.explosions.add(ship2.rect.x, ship2.rect.y)
 
 
 def updateBullets(setting, screen, stats, sb, ship1, ship2, aliens, bullets, eBullets):
