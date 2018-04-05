@@ -33,15 +33,8 @@
 | Minseok  Kang | Student    |     |
 | Jaehun Kim.   | student.   |     |
 | Hansae Ju     | Student    |     |
-| Jaewoo Yang   | Student    |     |
-<<<<<<< HEAD
-<<<<<<< HEAD
-| JK            | Student    |     |
 | ChaeHyun Baek | Student    |     |
-=======
-=======
 | Kim Tae Yoon           | Student    |     |
->>>>>>> a785b79fd5422e6f83f19dc98c05fbde172c18a5
 | KeonWoong Noh | Student    |     |
 | Onyu Park     | Student    |     |
 | TaeWoong Kong | Student    |     |
@@ -73,7 +66,6 @@
 | Keunmo Koo.   | Genius     |     |
 
 
->>>>>>> 95e5fd59e03ca0584c0237aafa142f7262a65685
 
 # Galtron
 A simple 2D shooter made with pygame, written in python...
