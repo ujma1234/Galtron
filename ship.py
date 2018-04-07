@@ -16,7 +16,7 @@ class Ship(Sprite):
         self.setting = setting
 
         # Load the ship image and its rect.
-        self.image = pg.image.load(checkColor())  # 'gfx/player.bmp'
+        self.image = pg.image.load('gfx/player.bmp')  # 'gfx/player.bmp'
         self.rect = self.image.get_rect()
         self.screenRect = screen.get_rect()
 
@@ -49,15 +49,15 @@ class Ship(Sprite):
         self.fullChargeTime = 2500
         self.chargeGauge = 0
 
-    def update(self, bullets, aliens):
-        self.image = pg.image.load(checkColor())
+    def update(self, bullets, aliens,):
+        #self.image = pg.image.load(checkColor())
         """Update the ships position"""
         if self.movingRight and self.rect.right < self.screenRect.right:
             self.center += self.setting.shipSpeed
-            self.image = pg.transform.rotate(self.image, -45)
+            #self.image = pg.transform.rotate(self.image, -45)
         if self.movingLeft and self.rect.left > 1:
             self.center -= self.setting.shipSpeed
-            self.image = pg.transform.rotate(self.image, 45)
+            #self.image = pg.transform.rotate(self.image, 45)
         if self.movingRight and self.rect.right >= self.screenRect.right:
             self.center = 1.0
         if self.movingLeft and self.rect.left <= 1:
