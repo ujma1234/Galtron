@@ -17,143 +17,118 @@ bgloop = 0
 reset = 0
 
 
-def checkEvents(setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets):
-    """Respond to keypresses and mouse events."""
-    global pauseBtnState
-    for event in pg.event.get():
-        # Check for quit event
-        if event.type == pg.QUIT:
-            sys.exit()
 
-            # Check for key down has been pressed
-        elif event.type == pg.KEYDOWN:
-            checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets,
-                               eBullets, pauseBtnState)
-            if (stats.gameActive):
-                continue
-            if event.key == pg.K_UP:
-                if pauseBtnState > 1:
-                    sounds.control_menu.play()
-                    pauseBtnState -= 1
-                    sel.rect.y -= 50
-            elif event.key == pg.K_DOWN:
-                if pauseBtnState < 3:
-                    sounds.control_menu.play()
-                    pauseBtnState += 1
-                    sel.rect.y += 50
+	"""Respond to keypresses and mouse events."""
+	global pauseBtnState
+	for event in pg.event.get():
+		#Check for quit event
+		if event.type == pg.QUIT:
+			sys.exit()
 
-            elif event.key == pg.K_RETURN:
-                if pauseBtnState == 1:
-                    sounds.select_menu.play()
-                    checkPlayBtn(setting, screen, stats, sb, playBtn, sel, ship, aliens, bullets, eBullets)
-                    #pg.time.delay(3000)
-                elif pauseBtnState == 2:
-                    sounds.select_menu.play()
-                    stats.mainGame = False
-                    stats.mainAbout = False
-                    stats.twoPlay = False
-                    stats.mainMenu = True
-                    stats.resetStats()
-                    sel.rect.centery = playBtn.rect.centery
-                    pauseBtnState = 1
-                elif pauseBtnState == 3:
-                    sounds.button_click_sound.play()
-                    pg.time.delay(300)
-                    sys.exit()
-                    # Check if the key has been released
-        elif event.type == pg.KEYUP:
-            checkKeyupEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets,
-                             pauseBtnState)
-        elif event.type == pg.MOUSEMOTION:
-            ship.center = event.pos[0]
-            ship.centery = event.pos[1]
+		#Check for key down has been pressed
+		elif event.type == pg.KEYDOWN:
+			checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets, pauseBtnState)
+			if(stats.gameActive):
+				continue
+			if event.key == pg.K_UP:
+				if pauseBtnState > 1:
+					sounds.control_menu.play()
+					pauseBtnState -= 1
+					sel.rect.y -= 50
+			elif event.key == pg.K_DOWN:
+				if pauseBtnState < 3:
+					sounds.control_menu.play()
+					pauseBtnState += 1
+					sel.rect.y += 50
 
+			elif event.key == pg.K_RETURN:
+				if pauseBtnState == 1:
+					sounds.select_menu.play()
+					checkPlayBtn(setting, screen, stats, sb, playBtn, sel, ship, aliens, bullets, eBullets)
+				elif pauseBtnState == 2:
+					sounds.select_menu.play()
+					stats.mainGame = False
+					stats.mainAbout = False
+					stats.twoPlay = False
+					stats.mainMenu = True
+					sel.rect.centery = playBtn.rect.centery
+					pauseBtnState = 1
+				elif pauseBtnState == 3:
+					sounds.button_click_sound.play()
+					pg.time.delay(300)
+					sys.exit()
+		#Check if the key has been released
+		elif event.type == pg.KEYUP:
+			checkKeyupEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets, pauseBtnState)
+		elif event.type == pg.MOUSEMOTION:
+                        ship.center = event.pos[0]
+                        ship.centery = event.pos[1]
 
-def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets,
-                       pauseBtnState):
-    """Response to kepresses"""
-    if event.key == pg.K_RIGHT:
-        # Move the ship right
-        ship.movingRight = True
-    elif event.key == pg.K_LEFT:
-        # Move the ship left
-        ship.movingLeft = True
-    elif event.key == pg.K_UP:
-        # Move the ship up
-        ship.movingUp = True
-    elif event.key == pg.K_DOWN:
-        # Move the ship down
-        ship.movingDown = True
-    elif event.key == pg.K_TAB:
-        # Change the style of trajectory of bullet
-        if (ship.trajectory < 4):
-            ship.trajectory += 1
-        else:
-            ship.trajectory = 0
-    elif event.key == pg.K_SPACE:
-        if not stats.paused:
-            if ship.checkReadyToShoot() and (len(bullets) < 10):
-                sounds.attack.play()
-                newBullet = Bullet(setting, screen, ship, ship.trajectory)
-                bullets.add(newBullet)
-                ship.setNextShootTime()
-            ship.chargeGaugeStartTime = pg.time.get_ticks()
-            ship.shoot = True
+def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets, pauseBtnState):
+	"""Response to kepresses"""
+	global back
+	if event.key == pg.K_RIGHT:
+		#Move the ship right
+		ship.movingRight = True
+	elif event.key == pg.K_LEFT:
+		#Move the ship left
+		ship.movingLeft = True
+	elif event.key == pg.K_UP:
+		#Move the ship up
+		ship.movingUp = True
+	elif event.key == pg.K_DOWN:
+		#Move the ship down
+		ship.movingDown = True
+	elif event.key == pg.K_TAB:
+		#Change the style of trajectory of bullet
+		if (ship.trajectory < 5):
+			ship.trajectory += 1
+		else:
+			ship.trajectory = 0
+	elif event.key == pg.K_SPACE:
+		ship.shoot = True
+	elif event.key == pg.K_x:
+		#Ultimate key
+		useUltimate(setting, screen, stats, bullets, stats.ultimatePattern)
+	#Check for pause key
+	elif event.key == pg.K_p:
+		sounds.paused.play()
+		pause(stats)
+	#Add speed control key
+	elif event.key == pg.K_q:
+		setting.halfspeed()
+	elif event.key == pg.K_w:
+		setting.doublespeed()
+	elif event.key == pg.K_c:
+		#interception Key
+		setting.checkBtnPressed += 1
+		if setting.checkBtnPressed % 2 != 0:
+			setting.interception = True
+		else:
+			setting.interception = False
+	elif event.key == pg.K_ESCAPE:
+		#Quit game
+		sounds.button_click_sound.play()
+		pg.time.delay(300)
+		sys.exit()
 
-    elif event.key == pg.K_x or event.key == 167:
-        # Ultimate key
-        useUltimate(setting, screen, stats, bullets, stats.ultimatePattern)
-        # Check for pause key
-    elif event.key == pg.K_p or event.key == 181:
-        sounds.paused.play()
-        pause(stats)
-        # Add speed control key
-    elif event.key == pg.K_q or event.key == 172:
-        setting.halfspeed()
-    elif event.key == pg.K_w or event.key == 173:
-        setting.doublespeed()
-    elif event.key == pg.K_c or event.key == 168:
-        # interception Key
-        setting.checkBtnPressed += 1
-        if setting.checkBtnPressed % 2 != 0:
-            setting.interception = True
-        else:
-            setting.interception = False
-    elif event.key == pg.K_F12:
-        # Reset Game
-        sounds.button_click_sound.play()
-        resetGame()
-    elif event.key == pg.K_ESCAPE:
-        # Quit game
-        sounds.button_click_sound.play()
-        pg.time.delay(300)
-        sys.exit()
-
-
-def checkKeyupEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets,
-                     pauseBtnState):
-    """Response to keyrealeses"""
-    global gauge
-    if event.key == pg.K_RIGHT:
-        ship.movingRight = False
-    elif event.key == pg.K_LEFT:
-        ship.movingLeft = False
-    elif event.key == pg.K_UP:
-        ship.movingUp = False
-    elif event.key == pg.K_DOWN:
-        ship.movingDown = False
-    elif event.key == pg.K_SPACE:
-        if not stats.paused:
-            if (ship.chargeGauge == 100):
-                sounds.charge_shot.play()
-                newBullet = Bullet(setting, screen, ship, ship.trajectory, 2)
-                bullets.add(newBullet)
-                ship.chargeGauge = 0
-            elif (50 <= ship.chargeGauge):
-                sounds.charge_shot.play()
-                newBullet = Bullet(setting, screen, ship, ship.trajectory, 1)
-                bullets.add(newBullet)
-        ship.shoot = False
+def checkKeyupEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens, bullets, eBullets, pauseBtnState):
+	"""Response to keyrealeses"""
+	if event.key == pg.K_RIGHT:
+		ship.movingRight = False
+	elif event.key == pg.K_LEFT:
+		ship.movingLeft = False
+	elif event.key == pg.K_UP:
+		ship.movingUp = False
+	elif event.key == pg.K_DOWN:
+		ship.movingDown = False
+	elif event.key == pg.K_SPACE:
+		if (ship.chargeGauge == 100):
+			sounds.charge_shot.play()
+			newBullet = Bullet(setting, screen, ship, ship.trajectory, 2)
+			bullets.add(newBullet)
+			ship.chargeGauge = 0
+		ship.shoot = False
 
 
 def pause(stats):
@@ -208,14 +183,16 @@ def getNumberRows(setting, shipHeight, alienHeight):
 
 
 def createAlien(setting, screen, aliens, alienNumber, rowNumber):
-    alien = Alien(setting, screen)
-    alienWidth = alien.rect.width
-    screenRect = alien.screen.get_rect()
-    alien.x = alienWidth + 2 * alienWidth * alienNumber
-    """ random position of enemy will be created in game window"""
-    alien.rect.x = random.randrange(0, setting.screenWidth - alien.x / 2)
-    alien.rect.y = (alien.rect.height + random.randrange(0, setting.screenHeight - alien.rect.height * 2)) / 1.5
-    aliens.add(alien)
+
+	sounds.stage_clear.play()
+	alien = Alien(setting, screen)
+	alienWidth = alien.rect.width
+	screenRect = alien.screen.get_rect()
+	alien.x = alienWidth + 2 * alienWidth * alienNumber
+	""" random position of enemy will be created in game window"""
+	alien.rect.x =  random.randrange(0,setting.screenWidth-alien.x/2)
+	alien.rect.y = (alien.rect.height + random.randrange(0,setting.screenHeight-alien.rect.height*2))/1.5
+	aliens.add(alien)
 
 
 def createFleet(setting, screen, ship, aliens):

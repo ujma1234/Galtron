@@ -98,4 +98,12 @@ def drawMenu(setting, screen, sb, greyBtn, redBtn, blueBtn, menuBtn, quitBtn, se
 
 
 def checkColor():
-    return 'gfx/player_' + color + '.bmp'
+
+	return 'gfx/player_'+color+'.bmp'
+
+
+
+def drawimg():
+	img = pygame.image.load('gfx/player_blue.bmp')
+	return 0
+

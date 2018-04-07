@@ -18,6 +18,8 @@ from ship import Ship
 
 
 def runGame():
+
+
     # Initialize game and create a window
     pg.init()
     # create a new object using the settings class
@@ -122,4 +124,5 @@ def runGame():
             sm.drawMenu(setting, screen, sb, menuBtn, quitBtn, bgcrbtn, sel)
 
 # run the runGame method to run the game
+
 runGame()
