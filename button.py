@@ -1,9 +1,10 @@
 import pygame.font
-import utilityFunctions
 
+import utilityFunctions
 
 buttons = []
 getInvertedRGB = utilityFunctions.getInvertedRGB
+
 
 class Button():
     """Button Class"""

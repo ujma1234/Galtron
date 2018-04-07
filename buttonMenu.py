@@ -1,9 +1,11 @@
 import pygame as pg
 import pygame.font
-import utilityFunctions
 from pygame.sprite import *
 
+import utilityFunctions
+
 getInvertedRGB = utilityFunctions.getInvertedRGB
+
 
 class ButtonMenu():
     def __init__(self, screen):

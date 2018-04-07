@@ -28,7 +28,6 @@ charge_shot = pg.mixer.Sound("sound_effects/charge_shot.wav")
 charge_shot.set_volume(0.4)
 stage_clear = pg.mixer.Sound("sound_effects/stage_clear.wav")
 
-
 button_click_sound = pg.mixer.Sound('sound_effects/button_clicked.wav')
 
 explosion_sound = pg.mixer.Sound('sound_effects/explosion.wav')

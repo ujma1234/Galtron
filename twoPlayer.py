@@ -19,6 +19,7 @@ reset = 0
 gameOverButtons = ["retry", "menu", "quit"]
 pauseButtons = ["play", "menu", "quit"]
 
+
 def checkEvents(setting, screen, stats, sb, bMenu, bullets, aliens, eBullets, ship1, ship2):
     """Respond to keypresses and mouse events."""
     for event in pg.event.get():
@@ -28,7 +29,7 @@ def checkEvents(setting, screen, stats, sb, bMenu, bullets, aliens, eBullets, sh
 
             # Check for key down has been pressed
         elif event.type == pg.KEYDOWN:
-            checkKeydownEvents(event, setting, screen, stats, ship1, ship2, aliens, bullets,eBullets)
+            checkKeydownEvents(event, setting, screen, stats, ship1, ship2, aliens, bullets, eBullets)
             if (stats.gameActive):
                 continue
             if event.key == pg.K_UP:
@@ -79,7 +80,7 @@ def buttonAction(stats, selectedName, setting, screen, ship1, ship2, aliens, bul
         sys.exit()
 
 
-def checkKeydownEvents(event, setting, screen, stats, ship1, ship2, aliens, bullets,eBullets):
+def checkKeydownEvents(event, setting, screen, stats, ship1, ship2, aliens, bullets, eBullets):
     """Response to kepresses"""
     global back
     # Movement of the ship1
@@ -468,7 +469,7 @@ def useUltimate(setting, screen, stats, sbullets, pattern):
     if pattern == 1:
         sounds.ult_attack.play()
         UltimateDiamondShape(setting, screen, stats, sbullets)
-    #	elif pattern == 2:
+    # elif pattern == 2:
     #		make other pattern
     stats.ultimateGauge = 0
 

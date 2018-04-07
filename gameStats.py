@@ -4,6 +4,7 @@ import os
 
 class GameStats():
     """Track stats for alien shooter"""
+
     def __init__(self, setting):
         """initialize statistics"""
         self.setting = setting
@@ -21,7 +22,6 @@ class GameStats():
         self.highScore = 0
         self.highScoreSaveFileName = 'data-files/highscore.json'
         self.resetStats()
-
 
     def setGameLoop(self, loop):
         self.mainMenu = False
@@ -52,7 +52,7 @@ class GameStats():
         self.counter = 3
         self.ultimateGauge = 0
         self.ultimatePattern = 1
-        
+
         self.tempScore = self.loadHighScore()
         if self.highScore >= self.tempScore:
             self.saveHighScore()

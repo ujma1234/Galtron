@@ -1,12 +1,11 @@
 import pygame.font
 from pygame.sprite import Group
 
-from playMenu import *
-from ship import Ship
 import utilityFunctions
-
+from ship import Ship
 
 getInvertedRGB = utilityFunctions.getInvertedRGB
+
 
 class Scoreboard():
     """A class for scorekeeping"""
@@ -71,7 +70,7 @@ class Scoreboard():
         self.ships = Group()
         for shipNumber in range(self.stats.shipsLeft):
             ship = Ship(self.setting, self.screen)
-            #ship.image = pygame.image.load(checkColor())
+            # ship.image = pygame.image.load(checkColor())
             ship.rect.x = 10 + shipNumber * (ship.rect.width - 10)
             ship.rect.y = self.scoreRect.bottom + 2
             self.ships.add(ship)

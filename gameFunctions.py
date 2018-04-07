@@ -6,7 +6,6 @@ import pygame as pg
 import sounds
 from alien import Alien
 from bullet import Bullet, SpecialBullet
-from button import Button
 
 backgroundImageY = 0
 clock = pg.time.Clock()
@@ -14,9 +13,9 @@ FPS = 120
 bgloop = 0
 reset = 0
 
-
 gameOverButtons = ["retry", "menu", "quit"]
 pauseButtons = ["play", "menu", "quit"]
+
 
 def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBullets):
     """Respond to keypresses and mouse events."""
@@ -52,7 +51,7 @@ def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBulle
                     if mouseBtn is not selectedBtn:
                         sounds.control_menu.play()
                         bMenu.selectByName(mouseBtnName)
-                    
+
         elif event.type == pg.MOUSEBUTTONDOWN:
             if not stats.gameActive:
                 pressed = pg.mouse.get_pressed()
@@ -212,16 +211,15 @@ def getNumberRows(setting, shipHeight, alienHeight):
 
 
 def createAlien(setting, screen, aliens, alienNumber, rowNumber):
-
-	sounds.stage_clear.play()
-	alien = Alien(setting, screen)
-	alienWidth = alien.rect.width
-	screenRect = alien.screen.get_rect()
-	alien.x = alienWidth + 2 * alienWidth * alienNumber
-	""" random position of enemy will be created in game window"""
-	alien.rect.x =  random.randrange(0,setting.screenWidth-alien.x/2)
-	alien.rect.y = (alien.rect.height + random.randrange(0,setting.screenHeight-alien.rect.height*2))/1.5
-	aliens.add(alien)
+    sounds.stage_clear.play()
+    alien = Alien(setting, screen)
+    alienWidth = alien.rect.width
+    screenRect = alien.screen.get_rect()
+    alien.x = alienWidth + 2 * alienWidth * alienNumber
+    """ random position of enemy will be created in game window"""
+    alien.rect.x = random.randrange(0, setting.screenWidth - alien.x / 2)
+    alien.rect.y = (alien.rect.height + random.randrange(0, setting.screenHeight - alien.rect.height * 2)) / 1.5
+    aliens.add(alien)
 
 
 def createFleet(setting, screen, ship, aliens):
@@ -403,7 +401,7 @@ def useUltimate(setting, screen, stats, sbullets, pattern):
     if pattern == 1:
         sounds.ult_attack.play()
         UltimateDiamondShape(setting, screen, stats, sbullets)
-    #	elif pattern == 2:
+    # elif pattern == 2:
     #		make other pattern
     stats.ultimateGauge = 0
 

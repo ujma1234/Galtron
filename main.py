@@ -4,7 +4,7 @@ from pygame.sprite import Group
 
 import about as About
 import gameFunctions as gf  # Event checker and update screen
-import intro #intro video making
+import intro  # intro video making
 import mainMenu as mm  # Main menu
 import playMenu as pm  # choosing ship color
 import settingsMenu as sm
@@ -13,15 +13,12 @@ from animations import Explosions
 from buttonMenu import ButtonMenu  # A button class that can be called for every new button
 from gameStats import GameStats  # Game stats that are changed during the duration of the game
 from scoreboard import Scoreboard  # Score board for points, high score, lives, level ect.
-from selector import Selector  # Import the main menu selector
 # import self made classes
 from settings import Settings
 from ship import Ship
 
 
 def runGame():
-
-
     # Initialize game and create a window
     pg.init()
     # create a new object using the settings class
@@ -29,7 +26,7 @@ def runGame():
     # creaete a new object from pygame display
     screen = pg.display.set_mode((setting.screenWidth, setting.screenHeight))
 
-    #intro
+    # intro
     intro.introimages()
 
     # set window caption using settings obj

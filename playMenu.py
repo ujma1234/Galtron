@@ -45,6 +45,7 @@ def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBulle
                     sounds.select_menu.play()
                     buttonAction(stats, mouseBtnName, ship)
 
+
 def buttonAction(stats, selectedName, ship):
     if selectedName in ('grey', 'red', 'blue'):
         color = selectedName
@@ -64,10 +65,11 @@ def drawMenu(setting, screen, sb, bMenu):
     bMenu.drawMenu()
     pg.display.flip()
 
-    
+
 def checkColor():
-	return 'gfx/player_'+color+'.bmp'
+    return 'gfx/player_' + color + '.bmp'
+
 
 def drawimg():
-	img = pygame.image.load('gfx/player_blue.bmp')
-	return 0
+    img = pygame.image.load('gfx/player_blue.bmp')
+    return 0

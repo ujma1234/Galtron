@@ -1,8 +1,9 @@
 import pygame as pg
+
 import utilityFunctions
 
-
 getInvertedRGB = utilityFunctions.getInvertedRGB
+
 
 class Settings():
     """A class to store all settings for game"""
@@ -17,7 +18,8 @@ class Settings():
         self.image = pg.transform.scale(self.image, (self.screenWidth, self.screenHeight))
         self.bg = self.image
         self.gameOverImage = pg.image.load("gfx/gameover.png")
-        self.gameOverImage = pg.transform.scale(self.gameOverImage, (self.screenWidth - 40, self.gameOverImage.get_height()))
+        self.gameOverImage = pg.transform.scale(self.gameOverImage,
+                                                (self.screenWidth - 40, self.gameOverImage.get_height()))
         # Ultimate settings
         self.ultimateGaugeIncrement = 3
 
@@ -79,8 +81,8 @@ class Settings():
             self.alienSpeed *= self.speedUp
             self.fleetDropSpeed *= self.speedUp
 
-        # self.alienPoints = int(self.alienPoints * self.scoreSpeedUp)
-        # self.alienPoints = int(self.alienPoints + self.scoreSpeedUp)
+            # self.alienPoints = int(self.alienPoints * self.scoreSpeedUp)
+            # self.alienPoints = int(self.alienPoints + self.scoreSpeedUp)
 
     def setIncreaseScoreSpeed(self, level):
         self.alienPoints = int(self.alienPoints + ((level - 1) * 10))

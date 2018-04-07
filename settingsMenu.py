@@ -3,14 +3,12 @@ import sys
 import pygame as pg
 
 import sounds
-from button import Button  # A button class that can be called for every new button
-from scoreboard import Scoreboard  # Score board for points, high score, lives, level ect.
-from settings import Settings
 
 # Create a variable to change current button being selected
 
 image = pg.image.load('gfx/fixsettings.png')
 rect = image.get_rect()
+
 
 def checkEvents1(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBullets):
     """Respond to keypresses and mouse events."""

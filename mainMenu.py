@@ -4,6 +4,7 @@ import pygame as pg
 
 import sounds
 
+
 # Create a variable to change current button being selected
 def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBullets):
     """Respond to keypresses and mouse events."""
@@ -40,7 +41,7 @@ def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBulle
                 if mouseBtn is not selectedBtn:
                     sounds.control_menu.play()
                     bMenu.selectByName(mouseBtnName)
-                    
+
         elif event.type == pg.MOUSEBUTTONDOWN:
             pressed = pg.mouse.get_pressed()
             if (pressed[0]):
