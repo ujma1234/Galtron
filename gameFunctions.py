@@ -302,7 +302,7 @@ def updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets, c
 def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets):
     """Detect collisions between alien and bullets"""
     collisions = pg.sprite.groupcollide(aliens, bullets, False, False)
-    collisions.update(pg.sprite.groupcollide(charged_bullets, aliens, False, True))
+    collisions.update(pg.sprite.groupcollide(aliens, charged_bullets, False, True))
     if collisions:
         sounds.enemy_explosion_sound.play()
         for alien in collisions :
