@@ -6,6 +6,7 @@ getInvertedRGB = utilityFunctions.getInvertedRGB
 
 
 class Settings():
+
     """A class to store all settings for game"""
 
     def __init__(self):
@@ -66,11 +67,15 @@ class Settings():
             self.alienSpeed *= self.speedUp
             self.fleetDropSpeed *= self.speedUp
 
+
             # self.alienPoints = int(self.alienPoints * self.scoreSpeedUp)
             # self.alienPoints = int(self.alienPoints + self.scoreSpeedUp)
 
     def setIncreaseScoreSpeed(self, level):
         self.alienPoints = int(self.alienPoints + ((level - 1) * 10))
+
+        self.alienPoints = int(self.alienPoints + self.scoreSpeedUp)
+
 
     def halfspeed(self):
         if self.Limit >= -1 and self.shipSpeed > 0 and self.bulletSpeed > 0 and self.alienSpeed > 0 and self.fleetDropSpeed > 0:
