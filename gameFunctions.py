@@ -303,7 +303,7 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
     """Detect collisions between alien and bullets"""
     collisions = pg.sprite.groupcollide(aliens, bullets, False, False)
     collisions.update(pg.sprite.groupcollide(charged_bullets, aliens, False, True))
-    if collisions:  
+    if collisions:
         sounds.enemy_explosion_sound.play()
         for alien in collisions :
             for bullet in collisions[alien] :
@@ -313,7 +313,7 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
                 setting.explosions.add(alien.rect.x, alien.rect.y)
                 sounds.enemy_explosion_sound.play()
                 aliens.remove(alien)
-            
+
 
         # Increase the ultimate gauge, upto 100
         stats.ultimateGauge += setting.ultimateGaugeIncrement
@@ -428,7 +428,7 @@ def drawChargeGauge(setting, screen, ship, sb):
     pg.draw.rect(screen, color, (x, y, ship.chargeGauge, 10), 0)
 
 
-def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, bMenu):
+def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, bMenu, bgManager):
     """Update images on the screen and flip to the new screen"""
     # Redraw the screen during each pass through the loop
     # Fill the screen with background color

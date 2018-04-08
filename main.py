@@ -121,7 +121,7 @@ def runGame():
                 gf.updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets)  # Update collisions
                 ship.update(bullets, aliens)  # update the ship
                 # Update the screen
-            gf.updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, bMenu)
+            gf.updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, bMenu, bgManager)
 
         bMenu.setMenuButtons(aboutButtons)
         bMenu.setPos(None, 500)
