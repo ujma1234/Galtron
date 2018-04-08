@@ -15,7 +15,7 @@ gameOverButtons = ["retry", "menu", "quit"]
 pauseButtons = ["play", "menu", "quit"]
 
 
-def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBullets):
+def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBullets, charged_bullets):
     """Respond to keypresses and mouse events."""
     for event in pg.event.get():
         # Check for quit event
@@ -39,7 +39,7 @@ def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBulle
                 if selectedBtn:
                     buttonAction(stats, selectedName, setting, screen, ship, aliens, bullets, eBullets)
         elif event.type == pg.KEYUP:
-            checkKeyupEvents(event, setting, screen, stats, ship, bullets)
+            checkKeyupEvents(event, setting, screen, stats, ship, bullets, charged_bullets)
 
         elif event.type == pg.MOUSEMOTION:
             if not stats.gameActive:
@@ -132,7 +132,7 @@ def checkKeydownEvents(event, setting, screen, stats, sb, ship, aliens, bullets,
         sys.exit()
 
 
-def checkKeyupEvents(event, setting, screen, stats, ship, bullets):
+def checkKeyupEvents(event, setting, screen, stats, ship, bullets, charged_bullets):
     """Response to keyrealeses"""
     global gauge
     if event.key == pg.K_RIGHT:
@@ -152,8 +152,8 @@ def checkKeyupEvents(event, setting, screen, stats, ship, bullets):
                 ship.chargeGauge = 0
             elif (50 <= ship.chargeGauge):
                 sounds.charge_shot.play()
-                newBullet = Bullet(setting, screen, ship, ship.trajectory, 1)
-                bullets.add(newBullet)
+                newBullet = Bullet(setting, screen, ship, ship.trajectory, 3)
+                charged_bullets.add(newBullet)
         ship.shoot = False
 
 
@@ -277,12 +277,13 @@ def updateAliens(setting, stats, sb, screen, ship, aliens, bullets, eBullets):
         shipHit(setting, stats, sb, screen, ship, aliens, bullets, eBullets)
 
 
-def updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
+def updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets):
     """update the position of the bullets"""
     # check if we are colliding
     bullets.update()
     eBullets.update()
-    checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets)
+    charged_bullets.update()
+    checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets)
     checkEBulletShipCol(setting, stats, sb, screen, ship, aliens, bullets, eBullets)
 
     # if bullet goes off screen delete it
@@ -298,10 +299,12 @@ def updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
         pg.sprite.groupcollide(bullets, eBullets, bullets, eBullets)
 
 
-def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets):
+def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets):
     """Detect collisions between alien and bullets"""
     collisions = pg.sprite.groupcollide(aliens, bullets, False, False)
+    collisions.update(pg.sprite.groupcollide(charged_bullets, aliens, False, True))
     if collisions:  
+        sounds.enemy_explosion_sound.play()
         for alien in collisions :
             for bullet in collisions[alien] :
                 alien.hitPoint -= bullet.damage
@@ -425,7 +428,7 @@ def drawChargeGauge(setting, screen, ship, sb):
     pg.draw.rect(screen, color, (x, y, ship.chargeGauge, 10), 0)
 
 
-def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, bMenu, bgManager):
+def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, bMenu):
     """Update images on the screen and flip to the new screen"""
     # Redraw the screen during each pass through the loop
     # Fill the screen with background color
@@ -447,6 +450,9 @@ def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, bM
         # draw all the enemy bullets
     for ebull in eBullets.sprites():
         ebull.drawBullet()
+
+    for charged_bullet in charged_bullets.sprites():
+        charged_bullet.drawBullet()
 
     ship.blitme()
     aliens.draw(screen)
