@@ -38,20 +38,19 @@ class Settings():
 
         # GameSpeedLimit
         self.Limit = 0
-
         self.globalGameSpeed = 1
 
         self.initDynamicSettings()
         # Interception settings
         self.checkBtnPressed = 0
         self.interception = False
-
         # New Level Starts at this time
         self.newStartTime = 0
 
     def invertColor(self):
         self.bgColor = getInvertedRGB(self.bgColor)
         self.bulletColor = getInvertedRGB(self.bulletColor)
+
 
     def initDynamicSettings(self):
         self.shipSpeed = 1.5
